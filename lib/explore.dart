@@ -1,5 +1,4 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vm_jewellerey/product_details.dart';
@@ -15,6 +14,10 @@ class CategoriesTab extends StatefulWidget {
 }
 
 class _CategoriesTabState extends State<CategoriesTab> {
+  bool isKids = false;
+  bool isMens = false;
+  bool isWomens = false;
+  bool isUnisex = false;
   List<String> labelName = [
     'abcd',
     'dd',
@@ -83,124 +86,343 @@ class _CategoriesTabState extends State<CategoriesTab> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const SizedBox(
-                height: 10,
-              ),
               Container(
+                height: 50,
                 padding: const EdgeInsets.all(10),
                 color: Colors.white,
                 width: MediaQuery.of(context).size.width,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.filter_alt,
+                    ListView(
+                      // padding: const EdgeInsets.symmetric(horizontal: 10),
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: isKids
+                              ? GestureDetector(
+                                  onTap: () => setState(() {
+                                    isKids = !isKids;
+                                  }),
+                                  child: Container(
+                                    width: 70,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                          color: Colors.black, width: 1.5),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: const [
+                                        Text(
+                                          'Kids',
+                                          style: TextStyle(color: Colors.red),
+                                        ),
+                                        SizedBox(
+                                          width: 7,
+                                        ),
+                                        Text(
+                                          'X',
+                                          style: TextStyle(
+                                              color: Colors.red, fontSize: 13),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              : GestureDetector(
+                                  onTap: () => setState(() {
+                                    isKids = !isKids;
+                                  }),
+                                  child: Container(
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                      // color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                          color: Colors.black, width: 1.5),
+                                    ),
+                                    child: const Center(child: Text('Kids')),
+                                  ),
+                                ),
                         ),
-                        Text('Filter'),
-                      ],
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        showCupertinoModalPopup(
-                            context: context,
-                            builder: (context) {
-                              return CupertinoActionSheet(
-                                title: const Text('Sort By'),
-                                actions: [
-                                  CupertinoActionSheetAction(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                      print(
-                                        'Featured',
-                                      );
-                                    },
-                                    child: const Text(
-                                      'Featured',
-                                      style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 63, 57, 57)),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: isMens
+                              ? GestureDetector(
+                                  onTap: () => setState(() {
+                                    isMens = !isMens;
+                                  }),
+                                  child: Container(
+                                    width: 70,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                          color: Colors.black, width: 1.5),
                                     ),
-                                    // isDefaultAction: true,
-                                  ),
-                                  CupertinoActionSheetAction(
-                                    onPressed: () {
-                                      setState(() {
-                                        labelName
-                                            .sort(((a, b) => b.compareTo(a)));
-                                      });
-                                      Navigator.pop(context);
-                                      print('low to high');
-                                    },
-                                    child: const Text(
-                                      'Price: Low to High',
-                                      style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 63, 57, 57)),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: const [
+                                        Text(
+                                          'Mens',
+                                          style: TextStyle(color: Colors.red),
+                                        ),
+                                        SizedBox(
+                                          width: 7,
+                                        ),
+                                        Text(
+                                          'X',
+                                          style: TextStyle(
+                                              color: Colors.red, fontSize: 13),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  CupertinoActionSheetAction(
-                                    onPressed: () {
-                                      setState(() {
-                                        labelName
-                                            .sort(((a, b) => a.compareTo(b)));
-                                      });
-                                      Navigator.pop(context);
-                                      print('hightolow');
-                                    },
-                                    child: const Text(
-                                      'Price: High to Low',
-                                      style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 63, 57, 57)),
+                                )
+                              : GestureDetector(
+                                  onTap: () => setState(() {
+                                    isMens = !isMens;
+                                  }),
+                                  child: Container(
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                      // color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                          color: Colors.black, width: 1.5),
                                     ),
+                                    child: const Center(child: Text('Mens')),
                                   ),
-                                  CupertinoActionSheetAction(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                      print('new');
-                                    },
-                                    child: const Text(
-                                      'Newest Arrival',
-                                      style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 63, 57, 57)),
-                                    ),
-                                  ),
-                                  CupertinoActionSheetAction(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                      print('avg cust');
-                                    },
-                                    child: const Text(
-                                      'Avg. Customer Review',
-                                      style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 63, 57, 57)),
-                                    ),
-                                  ),
-                                ],
-                              );
-                            });
-                      },
-                      child: Row(
-                        children: const [
-                          Icon(Icons.sort),
-                          Text('Sort'),
-                        ],
-                      ),
-                    ),
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.list,
+                                ),
                         ),
-                        Text('List'),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: isWomens
+                              ? GestureDetector(
+                                  onTap: () => setState(() {
+                                    isWomens = !isWomens;
+                                  }),
+                                  child: Container(
+                                    width: 75,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                          color: Colors.black, width: 1.5),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: const [
+                                        Text(
+                                          'Women',
+                                          style: TextStyle(color: Colors.red),
+                                        ),
+                                        SizedBox(
+                                          width: 7,
+                                        ),
+                                        Text(
+                                          'X',
+                                          style: TextStyle(
+                                              color: Colors.red, fontSize: 13),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              : GestureDetector(
+                                  onTap: () => setState(() {
+                                    isWomens = !isWomens;
+                                  }),
+                                  child: Container(
+                                    width: 55,
+                                    decoration: BoxDecoration(
+                                      // color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                          color: Colors.black, width: 1.5),
+                                    ),
+                                    child: const Center(child: Text('Women')),
+                                  ),
+                                ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: isUnisex
+                              ? GestureDetector(
+                                  onTap: () => setState(() {
+                                    isUnisex = !isUnisex;
+                                  }),
+                                  child: Container(
+                                    width: 75,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                          color: Colors.black, width: 1.5),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: const [
+                                        Text(
+                                          'Unisex',
+                                          style: TextStyle(color: Colors.red),
+                                        ),
+                                        SizedBox(
+                                          width: 7,
+                                        ),
+                                        Text(
+                                          'X',
+                                          style: TextStyle(
+                                              color: Colors.red, fontSize: 13),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              : GestureDetector(
+                                  onTap: () => setState(() {
+                                    isUnisex = !isUnisex;
+                                  }),
+                                  child: Container(
+                                    width: 55,
+                                    decoration: BoxDecoration(
+                                      // color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                          color: Colors.black, width: 1.5),
+                                    ),
+                                    child: const Center(child: Text('Unisex')),
+                                  ),
+                                ),
+                        ),
                       ],
-                    ),
+                    )
+                    // Row(
+                    //   children: const [
+                    //     Icon(
+                    //       Icons.filter_alt,
+                    //     ),
+                    //     Text('Filter'),
+                    //   ],
+                    // ),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     showCupertinoModalPopup(
+                    //         context: context,
+                    //         builder: (context) {
+                    //           return CupertinoActionSheet(
+                    //             title: const Text('Sort By'),
+                    //             actions: [
+                    //               CupertinoActionSheetAction(
+                    //                 onPressed: () {
+                    //                   Navigator.pop(context);
+                    //                   print(
+                    //                     'Featured',
+                    //                   );
+                    //                 },
+                    //                 child: const Text(
+                    //                   'Featured',
+                    //                   style: TextStyle(
+                    //                       color:
+                    //                           Color.fromARGB(255, 63, 57, 57)),
+                    //                 ),
+                    //                 // isDefaultAction: true,
+                    //               ),
+                    //               CupertinoActionSheetAction(
+                    //                 onPressed: () {
+                    //                   setState(() {
+                    //                     labelName
+                    //                         .sort(((a, b) => b.compareTo(a)));
+                    //                   });
+                    //                   Navigator.pop(context);
+                    //                   print('low to high');
+                    //                 },
+                    //                 child: const Text(
+                    //                   'Price: Low to High',
+                    //                   style: TextStyle(
+                    //                       color:
+                    //                           Color.fromARGB(255, 63, 57, 57)),
+                    //                 ),
+                    //               ),
+                    //               CupertinoActionSheetAction(
+                    //                 onPressed: () {
+                    //                   setState(() {
+                    //                     labelName
+                    //                         .sort(((a, b) => a.compareTo(b)));
+                    //                   });
+                    //                   Navigator.pop(context);
+                    //                   print('hightolow');
+                    //                 },
+                    //                 child: const Text(
+                    //                   'Price: High to Low',
+                    //                   style: TextStyle(
+                    //                       color:
+                    //                           Color.fromARGB(255, 63, 57, 57)),
+                    //                 ),
+                    //               ),
+                    //               CupertinoActionSheetAction(
+                    //                 onPressed: () {
+                    //                   Navigator.pop(context);
+                    //                   print('new');
+                    //                 },
+                    //                 child: const Text(
+                    //                   'Newest Arrival',
+                    //                   style: TextStyle(
+                    //                       color:
+                    //                           Color.fromARGB(255, 63, 57, 57)),
+                    //                 ),
+                    //               ),
+                    //               CupertinoActionSheetAction(
+                    //                 onPressed: () {
+                    //                   Navigator.pop(context);
+                    //                   print('avg cust');
+                    //                 },
+                    //                 child: const Text(
+                    //                   'Avg. Customer Review',
+                    //                   style: TextStyle(
+                    //                       color:
+                    //                           Color.fromARGB(255, 63, 57, 57)),
+                    //                 ),
+                    //               ),
+                    //             ],
+                    //           );
+                    //         });
+                    //   },
+                    //   child: Row(
+                    //     children: const [
+                    //       Icon(Icons.sort),
+                    //       Text('Sort'),
+                    //     ],
+                    //   ),
+                    // ),
+                    // Row(
+                    //   children: const [
+                    //     Icon(
+                    //       Icons.list,
+                    //     ),
+                    //     Text('List'),
+                    //   ],
+                    // ),
                   ],
                 ),
               ),

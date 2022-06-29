@@ -36,6 +36,15 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('VM Muslunkar'),
         actions: [
           IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const Wishlist()),
+              // );
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.shopping_cart),
             onPressed: () {
               Navigator.push(
