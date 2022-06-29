@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vm_jewellerey/wishlist.dart';
+
+import 'cart.dart';
 
 class NotificationTab extends StatelessWidget {
   const NotificationTab({super.key});
@@ -6,6 +9,42 @@ class NotificationTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 9, 62, 11),
+        title: const Text('VM Muslunkar'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const Wishlist()),
+              // );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MyCart()),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.favorite),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Wishlist()),
+              );
+            },
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+        ],
+      ),
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
