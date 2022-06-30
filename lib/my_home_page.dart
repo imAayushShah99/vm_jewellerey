@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:vm_jewellerey/notification.dart';
 import 'package:vm_jewellerey/wishlist.dart';
 
 import 'cart.dart';
@@ -38,10 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
             icon: const Icon(Icons.notifications),
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const Wishlist()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const NotificationTab()),
+              );
             },
           ),
           IconButton(

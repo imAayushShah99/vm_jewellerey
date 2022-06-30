@@ -15,6 +15,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   String dropdownvalue = 'Item 1';
 
   // List of items in our dropdown menu
+  String pincode = '0';
 
   var items = [
     'Item 1',
@@ -193,12 +194,32 @@ class _ProductDetailsState extends State<ProductDetails> {
                         SizedBox(
                           height: 40,
                           width: MediaQuery.of(context).size.width * 0.4,
-                          child: const TextField(
+                          child: TextField(
+                            onChanged: (value) {
+                              pincode = value.toString();
+                            },
+                            // onSubmitted: (value) {
+                            //   print(pincode);
+                            //   setState(() {
+                            //     print(pincode);
+                            //     pincode = value.toString();
+                            //     print(pincode);
+                            //   });
+                            // },
+                            onSubmitted: (_) {
+                              if (pincode.length != 6) {
+                                return;
+                              } else {
+                                return;
+                              }
+                            },
+                            // onSubmitted: (){
+
+                            // },
                             keyboardType: TextInputType.number,
-                            obscureText: false,
                             decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: 'Enter pincode',
+                              border: const OutlineInputBorder(),
+                              labelText: pincode == '0' ? 'Pincode' : pincode,
                             ),
                           ),
                         ),

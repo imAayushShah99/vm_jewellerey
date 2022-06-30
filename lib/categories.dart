@@ -11,15 +11,16 @@ class NotificationTab extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 9, 62, 11),
-        title: const Text('VM Muslunkar'),
+        title: const Text('Categories'),
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications),
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const Wishlist()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const NotificationTab()),
+              );
             },
           ),
           IconButton(
@@ -58,17 +59,20 @@ class NotificationTab extends StatelessWidget {
               height: 10,
             ),
             Image.network(
-                'https://www.dollymanghat.com/wp-content/uploads/2017/10/gems-banner.png'),
-            const SizedBox(
-              height: 10,
-            ),
-            Image.network(
                 'https://t3.ftcdn.net/jpg/02/14/45/10/360_F_214451066_TkdsyK2YzixNzw7QukVaNtNJG8uvmeO5.jpg'),
             const SizedBox(
               height: 10,
             ),
             Image.network(
                 'https://agaunews.com/wp-content/uploads/2013/09/VC-PLATINUM-BANNER.jpg'),
+            const SizedBox(
+              height: 10,
+            ),
+            Image.network(
+                'https://www.dollymanghat.com/wp-content/uploads/2017/10/gems-banner.png'),
+            const SizedBox(
+              height: 10,
+            ),
           ],
         ),
       )),
