@@ -5,6 +5,7 @@ import 'package:vm_jewellerey/product_details.dart';
 import 'package:vm_jewellerey/wishlist.dart';
 
 import 'cart.dart';
+import 'categories.dart';
 
 class CategoriesTab extends StatefulWidget {
   const CategoriesTab({super.key});
@@ -60,6 +61,16 @@ class _CategoriesTabState extends State<CategoriesTab> {
         backgroundColor: const Color.fromARGB(255, 9, 62, 11),
         title: const Text('Explore'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const NotificationTab()),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.shopping_cart),
             onPressed: () {

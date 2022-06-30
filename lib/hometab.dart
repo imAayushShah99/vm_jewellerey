@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'categories.dart';
 import 'explore.dart';
 import 'my_home_page.dart';
+import 'profile.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -82,14 +83,5 @@ class _HomeTabState extends State<HomeTab> {
       ),
       body: page[currentIndex],
     );
-  }
-}
-
-class ProfileTab extends StatelessWidget {
-  const ProfileTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold();
   }
 }
